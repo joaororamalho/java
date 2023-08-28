@@ -23,11 +23,6 @@ public class TiposPrimitivos {
         System.out.println("Digite a nota do aluno: ");
         float nota = teclado.nextFloat();
         System.out.printf("A nota de %s é %.2f \n", nome, nota); // o printf ou o 'format' é para prints formatados
-        
-        float nota1 = teclado.nextFloat();
-        float nota2 = teclado.nextFloat();
-        float result = nota1 + nota2;
-        System.out.println("A nota é: " + result);
     }
      
 }
