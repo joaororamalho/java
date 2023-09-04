@@ -24,7 +24,10 @@ public class OperadoresAritmeticos {
         int valor = 5 + numero++;
         System.out.println(valor);
         System.out.println(numero);
-        int x
+        
+        int x = 4;
+        x += 2;
+        System.out.println(x);
     }
     
 }
