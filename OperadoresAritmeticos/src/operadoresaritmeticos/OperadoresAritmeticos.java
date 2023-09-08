@@ -28,6 +28,14 @@ public class OperadoresAritmeticos {
         int x = 4;
         x += 2;
         System.out.println(x);
+        
+        float v = 8.3f;
+        int ar = (int) Math.round(v);
+        System.out.println(ar);
+        
+        double ale = Math.random();
+        int n = (int) (5 + ale * (10-5)); 
+        System.out.println(n);
     }
     
 }
