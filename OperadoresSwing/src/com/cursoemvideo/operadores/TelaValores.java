@@ -34,7 +34,7 @@ public class TelaValores extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblDiv = new javax.swing.JLabel();
-        lblResto = new javax.swing.JLabel();
+        lblRes = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,7 +42,7 @@ public class TelaValores extends javax.swing.JFrame {
 
         jLabel2.setText("Denominador");
 
-        btnDividir.setText("Dividir");
+        btnDividir.setText("Calcular");
         btnDividir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDividirActionPerformed(evt);
@@ -51,11 +51,11 @@ public class TelaValores extends javax.swing.JFrame {
 
         jLabel3.setText("Divisão");
 
-        jLabel4.setText("Resto");
+        jLabel4.setText("Raiz");
 
         lblDiv.setText("0");
 
-        lblResto.setText("0");
+        lblRes.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,7 +82,7 @@ public class TelaValores extends javax.swing.JFrame {
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblDiv, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblResto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblRes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGap(57, 57, 57)))
         );
         layout.setVerticalGroup(
@@ -105,7 +105,7 @@ public class TelaValores extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(lblResto))
+                    .addComponent(lblRes))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -117,9 +117,9 @@ public class TelaValores extends javax.swing.JFrame {
         int n = Integer.parseInt(txtNum.getText());
         int d = Integer.parseInt(txtDen.getText());
         float div = n / d;
-        float res = n % d;
+        float res = (float) Math.sqrt(n);
         lblDiv.setText(Float.toString(div));
-        lblResto.setText(Float.toString(res));
+        lblRes.setText(Float.toString(res));
     }//GEN-LAST:event_btnDividirActionPerformed
 
     /**
@@ -164,7 +164,7 @@ public class TelaValores extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblDiv;
-    private javax.swing.JLabel lblResto;
+    private javax.swing.JLabel lblRes;
     private javax.swing.JTextField txtDen;
     private javax.swing.JTextField txtNum;
     // End of variables declaration//GEN-END:variables
