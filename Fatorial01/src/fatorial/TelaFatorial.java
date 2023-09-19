@@ -32,6 +32,7 @@ public class TelaFatorial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        spiValor.setModel(new javax.swing.SpinnerNumberModel(0, 0, 12, 1));
         spiValor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 spiValorStateChanged(evt);
@@ -78,7 +79,7 @@ public class TelaFatorial extends javax.swing.JFrame {
         int i = 1;
         int res = i;
         
-        while (i<=valor && i<=12) {            
+        while (i<=valor) {            
             res = res*i;
             i++;
         }
@@ -113,7 +114,7 @@ public class TelaFatorial extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TelaFatorial().setVisible(true);
             }
