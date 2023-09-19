@@ -78,7 +78,7 @@ public class TelaFatorial extends javax.swing.JFrame {
         int i = 1;
         int res = i;
         
-        while (i<=valor) {            
+        while (i<=valor && i<=12) {            
             res = res*i;
             i++;
         }
