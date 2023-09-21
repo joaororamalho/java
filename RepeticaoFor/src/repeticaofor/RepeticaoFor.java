@@ -15,8 +15,8 @@ public class RepeticaoFor {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        for (int cc = 0; cc < 4; cc++) {
-            System.out.println("Cambalhota");
+        for (int cc = 1; cc < 101; cc+=10) {
+            System.out.println(cc);
         }
     }
     
