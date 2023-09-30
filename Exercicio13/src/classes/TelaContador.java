@@ -4,6 +4,8 @@
  */
 package classes;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author theak
@@ -81,12 +83,12 @@ public class TelaContador extends javax.swing.JFrame {
         lblPasso.setText("1");
 
         btnCont.setText("Contar");
-
-        lstCont.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        btnCont.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContActionPerformed(evt);
+            }
         });
+
         jScrollPane1.setViewportView(lstCont);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -171,6 +173,21 @@ public class TelaContador extends javax.swing.JFrame {
         int p = sliPasso.getValue();
         lblPasso.setText(Integer.toString(p));
     }//GEN-LAST:event_sliPassoStateChanged
+
+    private void btnContActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContActionPerformed
+        // TODO add your handling code here:
+        int i = sliInicio.getValue();
+        int f = sliFim.getValue();
+        int p = sliPasso.getValue();
+        
+        DefaultListModel lista = new DefaultListModel();
+        
+        for (int c = i; c <= f; c+= p) {
+            lista.addElement(c);
+        }
+        
+        lstCont.setModel(lista);
+    }//GEN-LAST:event_btnContActionPerformed
 
     /**
      * @param args the command line arguments
