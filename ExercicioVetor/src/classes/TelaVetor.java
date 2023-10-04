@@ -4,17 +4,26 @@
  */
 package classes;
 
+import java.util.Arrays;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author theak
  */
 public class TelaVetor extends javax.swing.JFrame {
-
+    
+    int vetor[] = new int[5];
+    DefaultListModel lista = new DefaultListModel();
+    int selecionado = 0;
     /**
      * Creates new form TelaVetor
      */
     public TelaVetor() {
         initComponents();
+        for(int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
     }
 
     /**
@@ -34,20 +43,49 @@ public class TelaVetor extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         lstVetor = new javax.swing.JList<>();
         lblSelecionado = new javax.swing.JLabel();
+        btnZerar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnAdd.setText("Adicionar");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnRemove.setText("Remover");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
 
         btnOrdem.setText("Ordenar");
+        btnOrdem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdemActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("vetor");
 
+        lstVetor.setModel(lista);
+        lstVetor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lstVetorMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstVetor);
 
         lblSelecionado.setText("[0]");
+
+        btnZerar.setText("Zerar");
+        btnZerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnZerarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -55,12 +93,17 @@ public class TelaVetor extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnOrdem)
-                    .addComponent(btnRemove)
-                    .addComponent(btnAdd))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnOrdem)
+                            .addComponent(btnRemove)
+                            .addComponent(btnAdd)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnZerar)
+                        .addGap(8, 8, 8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -86,7 +129,9 @@ public class TelaVetor extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnRemove)
                         .addGap(18, 18, 18)
-                        .addComponent(btnOrdem))
+                        .addComponent(btnOrdem)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnZerar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -94,6 +139,48 @@ public class TelaVetor extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        vetor[selecionado] = Integer.parseInt(txtNum.getValue().toString());
+        lista.removeAllElements();
+        for(int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void lstVetorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstVetorMouseClicked
+        // TODO add your handling code here:
+        selecionado = lstVetor.getSelectedIndex();
+        lblSelecionado.setText("[" + selecionado + "]");
+    }//GEN-LAST:event_lstVetorMouseClicked
+
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // TODO add your handling code here:
+        vetor[selecionado] = 0;
+        lista.removeAllElements();
+        for(int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnOrdemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdemActionPerformed
+        // TODO add your handling code here:
+        Arrays.sort(vetor);
+        lista.removeAllElements();
+        for(int c = 0; c < vetor.length; c++) {
+            lista.addElement(vetor[c]);
+        }
+    }//GEN-LAST:event_btnOrdemActionPerformed
+
+    private void btnZerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnZerarActionPerformed
+        // TODO add your handling code here:
+        lista.removeAllElements();
+        for(int c = 0; c < vetor.length; c++) {
+            vetor[c] = 0;
+            lista.addElement(vetor[c]);
+        }      
+    }//GEN-LAST:event_btnZerarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -134,6 +221,7 @@ public class TelaVetor extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnOrdem;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnZerar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblSelecionado;
