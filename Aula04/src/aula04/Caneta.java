@@ -20,7 +20,7 @@ public class Caneta {
     
     public void status() {
         System.out.println("SOBRE A CANETA:");
-        System.out.println("Modelo: " + this.modelo);
-        System.out.println("Ponta: " + this.ponta);
+        System.out.println("Modelo: " + this.getModelo());
+        System.out.println("Ponta: " + this.getPonta());
     }
 }
