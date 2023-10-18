@@ -6,7 +6,7 @@ public class Caneta {
     private boolean tampada;
     private String cor;
     
-    public void Caneta() {
+    public Caneta() {
         this.tampar();
         this.cor = "Azul";
     }
